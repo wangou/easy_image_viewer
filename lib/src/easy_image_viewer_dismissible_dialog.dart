@@ -13,7 +13,7 @@ class EasyImageViewerDismissibleDialog extends StatefulWidget {
   final bool immersive;
   final void Function(int)? onPageChanged;
   final void Function(int)? onViewerDismissed;
-  final void Function()? onMoreClicked;
+  final void Function(int)? onMoreClicked;
   final bool swipeDismissible;
   final bool doubleTapZoomable;
   final Color backgroundColor;
@@ -130,7 +130,7 @@ class _EasyImageViewerDismissibleDialogState
                         color: widget.closeButtonColor,
                         tooltip: widget.closeButtonTooltip,
                         onPressed: () {
-                          widget.onMoreClicked?.call();
+                          widget.onMoreClicked?.call(_getCurrentPage());
                         },
                       ))
                 ])));

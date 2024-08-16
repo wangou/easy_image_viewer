@@ -76,7 +76,7 @@ Future<Dialog?> showImageViewerPager(
     {bool immersive = true,
     void Function(int)? onPageChanged,
     void Function(int)? onViewerDismissed,
-      void Function()? onMoreClicked,
+      void Function(int)? onMoreClicked,
     bool useSafeArea = false,
     bool swipeDismissible = false,
     bool doubleTapZoomable = false,
