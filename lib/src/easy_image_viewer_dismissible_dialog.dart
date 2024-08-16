@@ -13,6 +13,7 @@ class EasyImageViewerDismissibleDialog extends StatefulWidget {
   final bool immersive;
   final void Function(int)? onPageChanged;
   final void Function(int)? onViewerDismissed;
+  final void Function()? onMoreClicked;
   final bool swipeDismissible;
   final bool doubleTapZoomable;
   final Color backgroundColor;
@@ -26,6 +27,7 @@ class EasyImageViewerDismissibleDialog extends StatefulWidget {
       this.immersive = true,
       this.onPageChanged,
       this.onViewerDismissed,
+        this.onMoreClicked,
       this.swipeDismissible = false,
       this.doubleTapZoomable = false,
       this.infinitelyScrollable = false,
@@ -109,15 +111,26 @@ class _EasyImageViewerDismissibleDialogState
                         });
                       }),
                   Positioned(
-                      top: 5,
-                      right: 5,
+                      top: 25,
+                      right: 45,
                       child: IconButton(
-                        icon: const Icon(Icons.close),
+                        icon: const Icon(Icons.close,size: 30,),
                         color: widget.closeButtonColor,
                         tooltip: widget.closeButtonTooltip,
                         onPressed: () {
                           Navigator.of(context).pop();
                           _handleDismissal();
+                        },
+                      )),
+                  Positioned(
+                      top: 25,
+                      right: 5,
+                      child: IconButton(
+                        icon: const Icon(Icons.more_horiz,size: 30,),
+                        color: widget.closeButtonColor,
+                        tooltip: widget.closeButtonTooltip,
+                        onPressed: () {
+                          widget.onMoreClicked?.call();
                         },
                       ))
                 ])));
