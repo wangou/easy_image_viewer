@@ -99,6 +99,7 @@ Future<Dialog?> showImageViewerPager(
             immersive: immersive,
             onPageChanged: onPageChanged,
             onViewerDismissed: onViewerDismissed,
+            onMoreClicked: onMoreClicked,
             swipeDismissible: swipeDismissible,
             doubleTapZoomable: doubleTapZoomable,
             infinitelyScrollable: infinitelyScrollable,
